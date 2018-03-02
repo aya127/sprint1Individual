@@ -1,0 +1,89 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+  var store = angular.module('store', []);
+  store.controller('storeController', function($scope) {
+     $scope.showTheForm = false;
+  });
+  </script>
+
+<h1>Available products <button type="submit" class="btn btn-primary"(click)="showAddForm=!showAddForm"><span class="glyphicon glyphicon-plus"></span> </button> </h1>
+
+<table class="table table-striped" style="width:100%">
+  <tr>
+    
+    <th>Name</th> 
+    <th>Price</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Seller name</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    
+    <td>{{product.name}} </td> 
+    <td>{{product.price}}</td>
+    <td>{{product.createdAt}}</td>
+    <td>{{product.updatedAt}}</td>
+    <td>{{product.sellerName}}</td>
+    <td><button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil" (click)="showEditForm=!showEditForm"></span> </button></td>
+  <td><button type="submit" class="btn btn-primary" (click)="deleteProduct(product)"><span class="glyphicon glyphicon-trash"></span> </button></td>
+<td>
+  <div class="container" *ngIf="showEditForm">
+    
+    <form [formGroup]="update"  (ngSubmit)="updateProduct(product)">
+      <div class="form-group">
+        <label for="editName">Name</label>
+        <input formControlName= "editName" type="text" class="form-control" id="editName">
+      </div>
+  
+      <div class="form-group">
+        <label for="editPrice">Price</label>
+        <input formControlName= "editPrice" type="Number" class="form-control" id="editPrice">
+      </div>
+  
+      <div class="form-group">
+        <label for="editSeller">Seller Name</label>
+        <input formControlName= "editSeller" type="text" class="form-control" id="editSeller">
+      </div>
+     
+      <button type="submit" class="btn btn-success">Submit</button>
+  
+    </form>
+  </div>
+</td>  
+</tr>
+  
+</table>
+
+
+<div class="container" *ngIf="showAddForm">
+  <h1>New product form</h1>
+  <form [formGroup]="create"  (ngSubmit)="createProduct()">
+   
+
+    <div class="form-group">
+      <label for="addName">Name</label>
+      <input formControlName= "addName" type="text" class="form-control" id="addName">
+    </div>
+
+    <div class="form-group">
+      <label for="addPrice">Price</label>
+      <input formControlName= "addPrice" type="Number" class="form-control" id="addPrice">
+    </div>
+
+    <div class="form-group">
+      <label for="addSeller">Seller Name</label>
+      <input formControlName= "addSeller" type="text" class="form-control" id="addSeller">
+    </div>
+   
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>
+
+
+
+ 

@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5a97f265164023dbc8677858"},"ID":"1","name":"iphone5","price":220,"createdAt":"15/2/2018","updatedAt":{"$date":"2018-03-01T14:58:09.591Z"},"sellerName":"Apple"}
+{"_id":{"$oid":"5a97f390164023dbc867785b"},"ID":"2","name":"Iphone6","price":"230","createdAt":"15/2/2018","updatedAt":"16/2/2018","sellerName":"Apple"}

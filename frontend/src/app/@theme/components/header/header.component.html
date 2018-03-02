@@ -1,0 +1,18 @@
+<div class="header-container left">
+  <div class="logo-containter">
+    <a (click)="toggleSidebar()" class="navigation">
+      <i class="nb-menu"></i>
+    </a>
+    <div class="logo" (click)="goToHome()">
+      <h1 style="color: #5cc5e8; font-family: goodtime"><img src="\assets\skins\lightgray\img\favicon.png" width="80px" height="80px">
+        Space Monkeys</h1>
+    </div>
+  </div>
+  <ngx-theme-switcher></ngx-theme-switcher>
+</div>
+
+<nb-actions size="medium" class="header-container right">
+  <nb-action>
+    <nb-user [nbContextMenu]="userMenu" [name]="user?.username"></nb-user>
+  </nb-action>
+</nb-actions>
